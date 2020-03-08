@@ -72,6 +72,7 @@ class Concert(object):
     def set_cookie(self):
         try:
             cookies = load(open("cookies.pkl", "rb"))  # 载入cookie
+            print(cookies)
             for cookie in cookies:
                 cookie_dict = {
                     'domain': '.damai.cn',  # 必须有，不然就是假登录
@@ -192,7 +193,7 @@ class Concert(object):
 
             buybutton = self.driver.find_element_by_class_name('buybtn')
             buybutton_text = buybutton.text
-            # print(buybutton_text)
+            print(buybutton_text)
             
             def add_ticket(): # 设置增加票数
                 try:
@@ -423,7 +424,7 @@ if __name__ == '__main__':
         print(e)
         raise Exception("***错误：初始化失败，请检查配置文件***")
     con.enter_concert()
-    # while True: # 可用于无限抢票，防止弹窗类异常使抢票终止
+    #while True: # 可用于无限抢票，防止弹窗类异常使抢票终止
     if True:
         try:
             if con.type == 1:  # detail.damai.cn
